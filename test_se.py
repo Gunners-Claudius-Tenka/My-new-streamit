@@ -11,6 +11,8 @@ import tempfile
 import os
 
 st.markdown("<h1 style='font-family: 宋体; font-size: 24px; text-align: center;'>这是一个关于streamlit和opencv的练习网站</h1>", unsafe_allow_html=True)
+name_input = st.text_input("您的名字是：","")
+st.write("确认是否输入完成：",name_input)
 picture = st.camera_input("Take a picture")
 if picture:
     # 将图像数据转换为PIL图像
@@ -31,7 +33,11 @@ if picture:
     p.add_run('当前时间：').bold = True  # 将“当前时间：”设置为粗体
     p.add_run(current_time)  # 添加当前时间
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-
+    
+    #添加一个用于储存输入的段落
+    p = doc.add_paragraph()
+    p.add_run("您输入的名字是：")
+    p.add_run(name_input)
     # 添加一个居中的段落用于图片
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
