@@ -1,5 +1,6 @@
 #先写一下这个计划吧
 #(1.摄像头) 2.读取文件(dcm) (3.生成docx文件(不确定能不能行)) 4.图像增强 5.考虑一下布局美观 6.上传本地照片
+#insert
 import streamlit as st
 from docx import Document
 from docx.shared import Inches
