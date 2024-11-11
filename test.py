@@ -6,8 +6,8 @@ import matplotlib
 import math
 
 st.header('这是一个测试dcm的文件')
-# 使得matplotlib可以显示出中文
-matplotlib.rcParams['font.family'] = 'Microsoft YaHei'
+# # 使得matplotlib可以显示出中文
+# matplotlib.rcParams['font.family'] = 'Microsoft YaHei'
 matplotlib.rcParams['font.size'] = 10
 
 # 创建一个文件上传控件
@@ -20,7 +20,7 @@ if uploaded_file is not None:
     fig, ax = plt.subplots(1, 2, figsize=(10, 5))
     # 在Figure对象中显示图像
     ax[0].imshow(I, cmap='gray')
-    ax[0].set_title('原图像')
+    ax[0].set_title('past')
     ax[0].axis('off')  # 不显示坐标轴
 
     hist = np.histogram(I.flatten(), bins=256, range=(0, 255))
@@ -35,7 +35,7 @@ if uploaded_file is not None:
     I_eq = np.clip(I_eq, 0, 255).astype(np.uint8)
     # 显示灰度变换后的图像
     ax[1].imshow(I_eq, cmap='gray', interpolation='nearest')
-    ax[1].set_title('灰度变换后DICOM图片')
+    ax[1].set_title('after-change')
     ax[1].axis('off')  # 不显示坐标轴
     # 将Figure对象传递给st.pyplot()
     st.pyplot(fig)
